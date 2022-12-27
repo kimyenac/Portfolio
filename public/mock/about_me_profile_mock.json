@@ -1,0 +1,71 @@
+{
+  "data": [
+    {
+      "id": "Name",
+      "profileIcon": "/icons/about_me_profile/profile_name.svg",
+      "profileName": "Name",
+      "profileDescription": [
+        {
+          "id": "1-1",
+          "name": "김예나"
+        }
+      ]
+    },
+    {
+      "id": "Date of Birth",
+      "profileIcon": "/icons/about_me_profile/profile_date_of_birth.svg",
+      "profileName": "Date of Birth",
+      "profileDescription": [
+        {
+          "id": "2-1",
+          "name": "05.03.18."
+        }
+      ]
+    },
+    {
+      "id": "License",
+      "profileIcon": "/icons/about_me_profile/profile_license.svg",
+      "profileName": "License",
+      "profileDescription": [
+        {
+          "id": "3-1",
+          "name": "21.05. 정보처리기능사 취득",
+          "url": "/icons/about_me_profile/profile_정보처리기능사.png"
+        },
+        {
+          "id": "3-2",
+          "name": "21.07. 웹디자인기능사 취득",
+          "url": "/icons/about_me_profile/profile_웹디자인기능사.png"
+        },
+        {
+          "id": "3-3",
+          "name": "22.03. 컴퓨터활용능력 1급 취득",
+          "url": "/icons/about_me_profile/profile_컴퓨터활용능력_1급.jpg"
+        }
+      ]
+    },
+    {
+      "id": "Contact Me",
+      "profileIcon": "/icons/about_me_profile/profile_contact_me.svg",
+      "profileName": "Contact Me",
+      "profileDescription": [
+        {
+          "id": "4-1",
+          "name": "Email",
+          "url": "mailto:yena.c.2005@gmail.com"
+        },
+        { "id": "4-2", "name": "GitHub", "url": "https://github.com/kimyenac" },
+        {
+          "id": "4-3",
+          "name": "Tistory",
+          "url": "https://yeroyal.tistory.com"
+        },
+        {
+          "id": "4-4",
+          "name": "Instagram",
+          "url": "https://www.instagram.com/kimyena.c"
+        }
+      ]
+    }
+  ]
+}

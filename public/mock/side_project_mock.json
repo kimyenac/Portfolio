@@ -1,0 +1,57 @@
+{
+  "data": [
+    {
+      "id": "Slido-clone",
+      "title": "Slido 클론 코딩 프로젝트",
+      "date": "2022년 8월 / 1人 개인 프로젝트",
+      "picture": [
+        "/icons/side_project/slido-clone-1.png",
+        "/icons/side_project/slido-clone-2.png",
+        "/icons/side_project/slido-clone-3.png",
+        "/icons/side_project/slido-clone-4.png",
+        "/icons/side_project/slido-clone-5.png",
+        "/icons/side_project/slido-clone-6.png",
+        "/icons/side_project/slido-clone-7.png",
+        "/icons/side_project/slido-clone-8.png",
+        "/icons/side_project/slido-clone-9.png",
+        "/icons/side_project/slido-clone-10.png",
+        "/icons/side_project/slido-clone-11.png",
+        "/icons/side_project/slido-clone-12.png"
+      ],
+      "mvp": "허용에 대한 모달, QnA 및 검색 기능, 다른 path로 이동할 수 있는 네비게이터, 공식 유트브 연결 비디오 등 Slido 관련 정보 전달",
+      "skills": [
+        "React",
+        "Styled-component",
+        "Emotion",
+        "TypeScript",
+        "Vercel"
+      ],
+      "deploymentLink": "https://slido-clone.vercel.app/",
+      "githubLink": "https://github.com/kimyenac/Slido-clone",
+      "tistoryLink": "https://yeroyal.tistory.com/128"
+    },
+    {
+      "id": "Portfolio",
+      "title": "포트폴리오 웹사이트",
+      "date": "2022년 12월 / 1人 개인 프로젝트",
+      "picture": [
+        "/icons/side_project/portfolio-1.png",
+        "/icons/side_project/portfolio-2.png",
+        "/icons/side_project/portfolio-3.png",
+        "/icons/side_project/portfolio-4.png",
+        "/icons/side_project/portfolio-5.png"
+      ],
+      "mvp": "간단한 자기 소개 및 인적사항, 기술 스택, 프로젝트 경험 및 업무 경력",
+      "skills": [
+        "React",
+        "Recoil",
+        "Styled-component",
+        "Emotion",
+        "TypeScript"
+      ],
+      "deploymentLink": "/",
+      "githubLink": "https://github.com/kimyenac/",
+      "tistoryLink": "https://yeroyal.tistory.com/"
+    }
+  ]
+}

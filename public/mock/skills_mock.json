@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "id": "Main-Skills",
+      "skillsName": "Main-Skills",
+      "skillsList": [
+        "Python",
+        "HTML5",
+        "CSS",
+        "SCSS",
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Recoil",
+        "Styled-Component",
+        "Emotion",
+        "React-Query"
+      ],
+      "skillsIcon": "/icons/skills/frontEnd.svg"
+    },
+    {
+      "id": "Sub-Skills",
+      "skillsName": "Sub-Skills",
+      "skillsList": [
+        "Docker",
+        "GitHub",
+        "BitBucket",
+        "Slack",
+        "Jira",
+        "Confluence",
+        "Zeplin",
+        "Figma",
+        "Vercel"
+      ],
+      "skillsIcon": "/icons/skills/frontEnd.svg"
+    }
+  ]
+}
