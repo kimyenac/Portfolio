@@ -1,23 +1,16 @@
 import styled from "styled-components";
 import { PortfolioDescription, SlidoDescription } from "./Description";
-import { useEffect, useState } from "react";
 import DesktopPicCarousel from "./DesktopPicCarousel";
-import { AboutMeProfile } from "../body-about-Me/types";
 import { SideProjectResponse } from "./types";
+import useSWR from "swr";
+import mockFetcher from "../mockFetcher";
 
 /* body - Desktop > SideProject */
 const DesktopSideProject = () => {
-  const [projectList, setProjectList] = useState<SideProjectResponse[]>([]);
-
-  useEffect(() => {
-    async function fetchProjectList() {
-      const response = await fetch("/mock/side_project_mock.json");
-      const result = await response.json();
-      setProjectList(result.data);
-    }
-
-    fetchProjectList();
-  }, []);
+  const { data: projectList } = useSWR<SideProjectResponse[]>(
+    "/side_project_mock.json",
+    mockFetcher
+  );
 
   if (!projectList) {
     return <></>;

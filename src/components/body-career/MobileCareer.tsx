@@ -1,25 +1,19 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
 import { CareerMockResponse } from "./types";
 import { useOpenProjectModal } from "./hook";
 import MobileMainProjectModal from "./MobileMainProjectModal";
+import useSWR from "swr";
+import mockFetcher from "../mockFetcher";
 
 /* body - Mobile > Career */
 const MobileCareer = () => {
-  const [careerList, setCareerList] = useState<CareerMockResponse[]>([]);
+  const { data: careerList } = useSWR<CareerMockResponse[]>(
+    "/career_miridih_mock.json",
+    mockFetcher
+  );
 
   const { openProjectModalQuarter, onCloseProjectModal, onOpenProjectModal } =
     useOpenProjectModal();
-
-  useEffect(() => {
-    async function fetchCareerList() {
-      const response = await fetch("/mock/career_miridih_mock.json");
-      const result = await response.json();
-      setCareerList(result.data);
-    }
-
-    fetchCareerList();
-  }, []);
 
   if (!careerList) {
     return <></>;

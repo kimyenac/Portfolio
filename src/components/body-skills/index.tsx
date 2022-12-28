@@ -1,22 +1,16 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
 import { SkillsMockData } from "./types";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../ErrorFallback";
+import useSWR from "swr";
+import mockFetcher from "../mockFetcher";
 
 /* body - Skills */
 const Skills = () => {
-  const [skillList, setSkillList] = useState<SkillsMockData[]>([]);
-
-  useEffect(() => {
-    async function fetchSkillList() {
-      const response = await fetch("/mock/skills_mock.json");
-      const result = await response.json();
-      setSkillList(result.data);
-    }
-
-    fetchSkillList();
-  }, []);
+  const { data: skillList } = useSWR<SkillsMockData[]>(
+    "/skills_mock.json",
+    mockFetcher
+  );
 
   if (!skillList) {
     return <></>;

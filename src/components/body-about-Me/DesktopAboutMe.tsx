@@ -1,20 +1,14 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
 import { AboutMeProfile } from "./types";
+import useSWR from "swr";
+import mockFetcher from "../mockFetcher";
 
 /* body - Desktop > About Me */
 const DesktopAboutMe = () => {
-  const [profileList, setProfileList] = useState<AboutMeProfile[]>([]);
-
-  useEffect(() => {
-    async function fetchProfileList() {
-      const response = await fetch("/mock/about_me_profile_mock.json");
-      const result = await response.json();
-      setProfileList(result.data);
-    }
-
-    fetchProfileList();
-  }, []);
+  const { data: profileList } = useSWR<AboutMeProfile[]>(
+    "/about_me_profile_mock.json",
+    mockFetcher
+  );
 
   if (!profileList) {
     return <></>;
