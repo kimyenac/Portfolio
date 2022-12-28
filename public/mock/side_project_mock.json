@@ -47,11 +47,12 @@
         "Recoil",
         "Styled-component",
         "Emotion",
-        "TypeScript"
+        "TypeScript",
+        "Vercel"
       ],
-      "deploymentLink": "/",
-      "githubLink": "https://github.com/kimyenac/",
-      "tistoryLink": "https://yeroyal.tistory.com/"
+      "deploymentLink": "https://kimyenac-portfolio.vercel.app/",
+      "githubLink": "https://github.com/kimyenac/Portfolio",
+      "tistoryLink": "https://yeroyal.tistory.com/131"
     }
   ]
 }

@@ -52,7 +52,7 @@ const DesktopMainProjectModal = ({
             </PrevButton>
             <VideoWrap>
               {!!projectList[currentCarouselNum].video && (
-                <video
+                  <video
                   src={projectList[currentCarouselNum].video}
                   controls
                   width="100%"
