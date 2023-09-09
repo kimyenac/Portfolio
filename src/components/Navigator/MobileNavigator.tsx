@@ -1,25 +1,41 @@
-import styled, { css } from "styled-components";
-import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
-import { navigatorMenu } from "./store/navigatorMenuStore";
-import { HeaderNavigatorMenu } from "./types";
+import { useEffect, useRef, useState } from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+import { SectionHeightStore } from "../../store";
+import { useRecoilState, useRecoilValue } from "recoil";
+
+/* 네비게이터 메뉴 리스트 */
+const headerNavigatorList = [
+  "Home",
+  "About Me",
+  "Skills",
+  "Career",
+  "Side Project",
+];
 
 /* 모바일 네비게이션 */
-const MobileNavigator = ({
-  headerNavigatorList,
-}: {
-  headerNavigatorList: HeaderNavigatorMenu[];
-}) => {
+const MobileNavigator = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const homeHeight = useRecoilValue(SectionHeightStore.homeHeightStore);
+  const [navigatorHeight, setNavigatorHeight] = useRecoilState(
+    SectionHeightStore.navigatorHeightStore
+  );
+
+  useEffect(() => {
+    if (ref.current) {
+      setNavigatorHeight(ref.current.offsetHeight);
+    }
+  }, [ref, setNavigatorHeight]);
+
   /* 선택된 메뉴 */
-  const [selectNavigatorMenu, setSelectNavigatorMenu] =
-    useRecoilState(navigatorMenu);
+  const [selectNavigatorMenu, setSelectNavigatorMenu] = useState("Home");
 
   /* 메뉴가 오픈되어 있으면 true, 오픈되어 있지 않으면 false */
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const scrollEvent = () => {
-      if (window.scrollY <= 607) {
+      if (window.scrollY < homeHeight - navigatorHeight) {
         setSelectNavigatorMenu("Home");
         return;
       }
@@ -42,22 +58,18 @@ const MobileNavigator = ({
     return () => {
       document.removeEventListener("scroll", scrollEvent);
     };
-  }, [setSelectNavigatorMenu]);
+  }, [homeHeight, setSelectNavigatorMenu]);
 
   /* menuOnClick 이벤트 */
-  const menuOnClick = ({
-    navigatorMenu,
-  }: {
-    navigatorMenu: HeaderNavigatorMenu;
-  }) => {
-    if (window.location.pathname !== "/") {
-      window.location.pathname = "/";
-    }
+  const menuOnClick = ({ navigatorMenu }: { navigatorMenu: string }) => {
     if (navigatorMenu === "Home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
     if (navigatorMenu === "About Me") {
-      window.scrollTo({ top: 644, behavior: "smooth" });
+      window.scrollTo({
+        top: homeHeight - navigatorHeight,
+        behavior: "smooth",
+      });
     }
     if (navigatorMenu === "Skills") {
       window.scrollTo({ top: 1704, behavior: "smooth" });
@@ -72,9 +84,9 @@ const MobileNavigator = ({
   };
 
   return (
-    <Wrap>
-      <Container isMenuOpen={isMenuOpen}>
-        <MainTitle isMenuOpen={isMenuOpen}>kimyena.c PortFolio</MainTitle>
+    <Wrap ref={ref}>
+      <Container>
+        <MainTitle>kimyena.c PortFolio</MainTitle>
         <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <img src={"/icons/menu.svg"} />
         </MenuButton>
@@ -108,7 +120,7 @@ const Wrap = styled.div`
   height: 56px;
 `;
 
-const Container = styled.div<{ isMenuOpen: boolean }>`
+const Container = styled.div`
   padding: 1.25rem 1.5rem 1rem;
   display: flex;
   justify-content: space-between;
@@ -118,7 +130,7 @@ const Container = styled.div<{ isMenuOpen: boolean }>`
   position: relative;
 `;
 
-const MainTitle = styled.div<{ isMenuOpen: boolean }>`
+const MainTitle = styled.div`
   font-size: 1.2rem;
   font-weight: bold;
   display: flex;
@@ -158,15 +170,13 @@ const NavigatorButton = styled.button<{
   isSelectedMenu: boolean;
 }>`
   ${({ isSelectedMenu }) =>
-    !isSelectedMenu &&
-    css`
-      color: rgb(160, 160, 160);
-    `};
-  ${({ isSelectedMenu }) =>
-    isSelectedMenu &&
-    css`
-      color: #5bb3e9;
-    `};
+    isSelectedMenu
+      ? css`
+          color: #5bb3e9;
+        `
+      : css`
+          color: rgb(160, 160, 160);
+        `};
 
   :hover {
     color: #5bb3e9;

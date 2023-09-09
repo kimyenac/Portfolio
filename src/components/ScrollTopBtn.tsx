@@ -1,8 +1,9 @@
-import styled, { css } from "styled-components";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ErrorFallback from "./ErrorFallback";
 import MediaQuery from "react-responsive";
 import { ErrorBoundary } from "react-error-boundary";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
 /* 특정 스크롤 이하 내려가면 생기는 버튼 (메인 화면으로 이동 가능한) */
 const ScrollTopBtn = () => {
