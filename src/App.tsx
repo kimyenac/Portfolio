@@ -10,6 +10,7 @@ import {
   ScrollTopBtn,
 } from "./components";
 import { RecoilRoot } from "recoil";
+import styled from "@emotion/styled";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <ScrollTopBtn />
       <Navigator />
       <Home />
+      <Horizontal />
       <AboutMe />
       <Skills />
       <Career />
@@ -27,3 +29,18 @@ const App = () => {
 };
 
 export default App;
+
+const Horizontal = styled.div`
+  width: 50%;
+  margin: 0 auto;
+  height: 0;
+  border-top: 1px solid #5bb3e9;
+
+  :after {
+    content: "◆";
+    position: relative;
+    top: -9px;
+    left: calc(50% - 8px);
+    color: #5bb3e9;
+  }
+`;

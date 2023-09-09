@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components";
-import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useEffect, useRef, useState } from "react";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { navigatorMenu } from "./store/navigatorMenuStore";
 import { HeaderNavigatorMenu } from "./types";
+import { SectionHeightStore } from "../../store";
 
 /* 데스크탑 네비게이션 */
 const DesktopNavigator = ({
@@ -10,6 +11,17 @@ const DesktopNavigator = ({
 }: {
   headerNavigatorList: HeaderNavigatorMenu[];
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const setNavigatorHeight = useSetRecoilState(
+    SectionHeightStore.navigatorHeightStore
+  );
+
+  useEffect(() => {
+    if (ref.current) {
+      setNavigatorHeight(ref.current.offsetHeight);
+    }
+  }, [setNavigatorHeight]);
+
   /* 선택된 메뉴 */
   const [selectNavigatorMenu, setSelectNavigatorMenu] =
     useRecoilState(navigatorMenu);
@@ -80,7 +92,7 @@ const DesktopNavigator = ({
   };
 
   return (
-    <Wrap isScroll={isScroll}>
+    <Wrap ref={ref} isScroll={isScroll}>
       <Container>
         <MainTitle isScroll={isScroll}>kimyena.c PortFolio</MainTitle>
         <NavigatorWrap>
