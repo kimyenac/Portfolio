@@ -3,6 +3,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { SectionHeightStore } from "../../store";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
+import { Theme } from "../../styles";
 
 /* 네비게이터 메뉴 리스트 */
 const headerNavigatorList = [
@@ -128,7 +129,7 @@ const MainTitle = styled.div`
   font-weight: bold;
   display: flex;
   align-items: center;
-  color: rgb(69, 70, 73);
+  color: ${Theme.color.defaultTextColor};
 `;
 
 const NavigatorWrap = styled.ul`
@@ -141,14 +142,14 @@ const NavigatorButton = styled.button<{ isSelectedMenu: boolean }>`
   ${({ isSelectedMenu }) =>
     isSelectedMenu
       ? css`
-          color: rgb(69, 70, 73);
+          color: ${Theme.color.defaultTextColor};
         `
       : css`
-          color: rgb(160, 160, 160);
+          color: ${Theme.color.defaultHorizontalColor};
         `};
 
   :hover {
-    color: #5bb3e9;
+    color: ${Theme.color.defaultColor};
     cursor: pointer;
   }
 `;

@@ -1,5 +1,6 @@
-import styled from "styled-components";
 import { css, Global } from "@emotion/react";
+import styled from "@emotion/styled";
+import { Theme } from "../styles";
 
 /* 에러 발생 시 보여지는 화면 */
 const ErrorFallback = () => {
@@ -50,14 +51,14 @@ const Message = styled.div`
 `;
 
 const Button = styled.div`
-  border: 1px solid #5bb3e9;
+  border: 1px solid ${Theme.color.defaultColor};
   background-color: #fff;
   border-radius: 10px;
-  color: #5bb3e9;
+  color: ${Theme.color.defaultColor};
   padding: 0.5rem 1rem;
 
   :hover {
-    background-color: #5bb3e9;
+    background-color: ${Theme.color.defaultColor};
     color: #fff;
     cursor: pointer;
   }

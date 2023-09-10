@@ -1,6 +1,6 @@
 import React from "react";
+import "../src/styles/global.css";
 import {
-  GlobalStyle,
   Navigator,
   Home,
   Skills,
@@ -15,7 +15,6 @@ import styled from "@emotion/styled";
 const App = () => {
   return (
     <RecoilRoot>
-      <GlobalStyle />
       <ScrollTopBtn />
       <Navigator />
       <Home />

@@ -1,5 +1,4 @@
 export { default as Navigator } from "./Navigator";
-export { default as GlobalStyle } from "./GlobalStyle";
 export { default as Home } from "./Home";
 export { default as Skills } from "./body-skills";
 export { default as Career } from "./body-career";

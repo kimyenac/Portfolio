@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { useEffect, useRef } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { SectionHeightStore } from "../../store";
+import { Theme } from "../../styles";
 
 const Home = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -32,13 +33,13 @@ const Home = () => {
         </SubTitle>
         <LinkWrap>
           <Link href="https://github.com/kimyenac" target="_blank">
-            <img src="/icons/github-logo.png" />
+            <img src={Theme.icon.gitHubLogo} />
           </Link>
           <Link href="https://yeroyal.tistory.com/" target="_blank">
-            <img src="/icons/about_me_profile/profile_license.svg" />
+            <img src={Theme.icon.blogLogo} />
           </Link>
           <Link href="mailto:yena.c.2005@gmail.com" target="_blank">
-            <img src="/icons/about_me_profile/profile_contact_me.svg" />
+            <img src={Theme.icon.contact} />
           </Link>
         </LinkWrap>
       </Container>
@@ -54,7 +55,7 @@ const Wrap = styled.div`
   height: calc(100vh - 1px);
 
   background-color: #fff;
-  //background-color: #5bb3e9;
+  //background-color: ${Theme.color.defaultColor};
 
   display: flex;
   justify-content: center;
@@ -69,7 +70,7 @@ const Container = styled.div`
   width: 100%;
   margin: 0 40px;
 
-  color: rgb(69, 70, 73);
+  color: ${Theme.color.defaultTextColor};
 `;
 
 const MainTitle = styled.div`
@@ -81,7 +82,7 @@ const Horizontal = styled.div`
   height: 1px;
   width: 100%;
 
-  background: rgb(160, 160, 160);
+  background: ${Theme.color.defaultHorizontalColor};
 `;
 
 const SubTitle = styled.div`
@@ -140,14 +141,14 @@ const Link = styled.a`
 const ScrollButton = styled.button`
   position: absolute;
   bottom: 2.5rem;
-  color: #5bb3e9;
+  color: ${Theme.color.defaultColor};
   padding: 0.7rem 1.2rem;
-  border: 1px solid #5bb3e9;
+  border: 1px solid ${Theme.color.defaultColor};
   border-radius: 8px;
   width: max-content;
 
   :hover {
-    background-color: #5bb3e9;
+    background-color: ${Theme.color.defaultColor};
     color: #fff;
     cursor: pointer;
   }

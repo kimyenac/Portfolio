@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { SectionHeightStore } from "../../store";
 import { useRecoilState, useRecoilValue } from "recoil";
+import { Theme } from "../../styles";
 
 /* 네비게이터 메뉴 리스트 */
 const headerNavigatorList = [
@@ -58,7 +59,7 @@ const MobileNavigator = () => {
     return () => {
       document.removeEventListener("scroll", scrollEvent);
     };
-  }, [homeHeight, setSelectNavigatorMenu]);
+  }, [homeHeight, navigatorHeight, setSelectNavigatorMenu]);
 
   /* menuOnClick 이벤트 */
   const menuOnClick = ({ navigatorMenu }: { navigatorMenu: string }) => {
@@ -88,7 +89,7 @@ const MobileNavigator = () => {
       <Container>
         <MainTitle>kimyena.c PortFolio</MainTitle>
         <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <img src={"/icons/menu.svg"} />
+          <img src={Theme.icon.menu} />
         </MenuButton>
       </Container>
       <NavigatorWrap isMenuOpen={isMenuOpen}>
@@ -135,13 +136,14 @@ const MainTitle = styled.div`
   font-weight: bold;
   display: flex;
   align-items: center;
-  color: rgb(69, 70, 73);
+  color: ${Theme.color.defaultTextColor};
 `;
 
 const MenuButton = styled.button`
   width: 24px;
   height: 24px;
   position: relative;
+  cursor: pointer;
 
   img {
     position: absolute;
@@ -172,14 +174,14 @@ const NavigatorButton = styled.button<{
   ${({ isSelectedMenu }) =>
     isSelectedMenu
       ? css`
-          color: #5bb3e9;
+          color: ${Theme.color.defaultColor}; ;
         `
       : css`
-          color: rgb(160, 160, 160);
+          color: ${Theme.color.defaultHorizontalColor};
         `};
 
   :hover {
-    color: #5bb3e9;
+    color: ${Theme.color.defaultColor};
     cursor: pointer;
   }
 `;
